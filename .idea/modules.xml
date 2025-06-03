@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libreria-spring.main.iml" filepath="$PROJECT_DIR$/.idea/modules/libreria-spring.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libreria-spring/proyectolibreria.libreria-spring.main.iml" filepath="$PROJECT_DIR$/.idea/modules/libreria-spring/proyectolibreria.libreria-spring.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ismac-libreria.iml" filepath="$PROJECT_DIR$/.idea/ismac-libreria.iml" />
     </modules>
   </component>
 </project>
