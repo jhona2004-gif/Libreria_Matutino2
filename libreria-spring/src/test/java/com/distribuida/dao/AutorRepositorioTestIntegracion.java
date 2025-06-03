@@ -54,12 +54,29 @@ public class AutorRepositorioTestIntegracion {
 
     @Test
     public void update(){
-        Optional<Autor> autor = autorRepository.findById(54);
+        Optional<Autor> autor = autorRepository.findById(55);
         assertTrue(autor.isPresent(), "El autor con el ID=54 debería existir");
 
         autor.orElse(null).setNombre("Melisa");
         autor.orElse(null).setApellido("Rosales");
+        autor.orElse(null).setPais("Mexico");
+        autor.orElse(null).setDireccion("Av. Nuevo Leon y Guadalajara");
+        autor.orElse(null).setTelefono("1597863201");
+        autor.orElse(null).setCorreo("melirosa@gmail.com");
 
+        Autor autorActualizado = autorRepository.save(autor.orElse(null));
+
+        assertEquals("Melisa", autorActualizado.getNombre());
+        assertEquals("Rosales",autorActualizado.getApellido());
+    }
+
+    @Test
+    public void delete(){
+        if (autorRepository.existsById(55)){
+            autorRepository.deleteById(55);
+        }
+
+        assertFalse(autorRepository.existsById(55), "El ID=55, debería haberse eliminado");
 
     }
 
