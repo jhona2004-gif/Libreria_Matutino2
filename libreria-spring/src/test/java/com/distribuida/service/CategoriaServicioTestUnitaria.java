@@ -89,4 +89,18 @@ public class CategoriaServicioTestUnitaria {
         verify(categoriaRepository, never()).save(any());
     }
 
+    @Test
+    public void testDeleteExistente(){
+        when(categoriaRepository.existsById(1)).thenReturn(true);
+        categoriaService.delete((1));
+        verify(categoriaRepository).deleteById(1);
+    }
+
+    @Test
+    public void testDeleteNoExistente(){
+        when(categoriaRepository.existsById(2)).thenReturn(false);
+        categoriaService.delete(2);
+        verify(categoriaRepository, never()).deleteById(anyInt());
+    }
+
 }
