@@ -82,7 +82,7 @@ public class LibroRepositorioTestIntegracion {
 
     @Test
     public void update(){
-       Optional<Libro> libroExistente =libroRepository.findById(79);
+       Optional<Libro> libroExistente =libroRepository.findById(80);
        Optional<Categoria> categoria = categoriaRepository.findById(12);
        Optional<Autor> autor = autorRepository.findById(3);
 

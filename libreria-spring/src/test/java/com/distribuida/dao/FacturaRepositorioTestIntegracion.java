@@ -68,7 +68,7 @@ public class FacturaRepositorioTestIntegracion {
     @Test
     public void update(){
 
-        Optional<Factura> facturExistente = facturaRepository.findById(87);
+        Optional<Factura> facturExistente = facturaRepository.findById(88);
 
         Optional<Cliente> cliente = clienteRepository.findById(2);
 

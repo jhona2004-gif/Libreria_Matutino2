@@ -53,8 +53,8 @@ public class CategoriaRepositorioTestIntegracion {
 
     @Test
     public void update(){
-        Optional<Categoria> categoria = categoriaRepository.findById(58);
-        assertTrue(categoria.isPresent(), "La categoria con ID=55 debería existir");
+        Optional<Categoria> categoria = categoriaRepository.findById(59);
+        assertTrue(categoria.isPresent(), "La categoria con ID=59 debería existir");
 
         categoria.orElse(null).setCategoria("Accion");
         categoria.orElse(null).setDescripcion("Libros de accion");

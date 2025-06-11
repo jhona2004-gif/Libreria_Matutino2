@@ -70,7 +70,7 @@ public class FacturaDetalleTestIntegracion {
 
     @Test
     public void update(){
-        Optional<FacturaDetalle> facturaDetalleExistente = facturaDetalleRepository.findById(210);
+        Optional<FacturaDetalle> facturaDetalleExistente = facturaDetalleRepository.findById(211);
         Optional<Factura> factura = facturaRepository.findById(10);
         Optional<Libro> libro = libroRepository.findById(5);
 
