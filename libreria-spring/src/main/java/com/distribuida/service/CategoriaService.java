@@ -3,7 +3,6 @@ package com.distribuida.service;
 import com.distribuida.model.Autor;
 import com.distribuida.model.Categoria;
 
-import javax.smartcardio.Card;
 import java.util.List;
 
 public interface CategoriaService {
