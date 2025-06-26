@@ -5,7 +5,7 @@ import com.distribuida.service.CategoriaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.ManyToOne;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.MediaType;
+import org.springframework.http.MediaType;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -16,11 +16,11 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.springframework.http.MediaType;
+
 
 @SuppressWarnings("removal")
 @WebMvcTest(CategoriaController.class)
@@ -49,14 +49,15 @@ public class CategoriaControllerTestIntegracion {
 
     @Test
     public void testSave() throws Exception {
-        Categoria categorias = new Categoria(0,"Animada", "Libros animados");
+        Categoria categorias = new Categoria(0, "Animada", "Libros animados");
 
         Mockito.when(categoriaService.save(any(Categoria.class))).thenReturn(categorias);
 
-        mockMvc.perform((post("/api/categorias")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(categorias))
-                ).andExpect(status().isOk())
-                .andExpect(jsonPath("$.categoria").value("Animada")));
+        mockMvc.perform(post("/api/categorias")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(categorias)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.categoria").value("Animada"));
     }
+
 }
